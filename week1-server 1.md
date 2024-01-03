@@ -8,7 +8,8 @@ sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 yum -y install java 
 3.	Cek Java yang sudah terinstall dengan perintah
-Java -version
+   Java -version
+
 ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/a397666a-0cf0-4c8c-a9bb-e02e676b6752)
 
 4.	Mendownload dan menginstall Kafka dengan perintah
@@ -32,19 +33,19 @@ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
   	
   	 ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/a70573cc-83fc-49af-930b-5dc7994e1861)
 
-10.	Membuat Topic pada kafka
+9.	Membuat Topic pada kafka
 bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
  ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/723aa7a0-3965-4dfc-8f8f-f3adc4c789c6)
 
-11.	Melihat Topic yang sudah di buat dengan script
+10.	Melihat Topic yang sudah di buat dengan script
     bin/kafka-topics.sh --list --bootstrap-server localhost:9092
  ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/7b349f41-df4d-46aa-a1c1-ff3e3457302d)
 
-12.	Mengirim Pesan ke Topic
+11.	Mengirim Pesan ke Topic
     bin/kafka-console-producer.sh --broker-list localhost:9092 --topic quickstart-alldata
    	![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/0a43febd-ae70-44a2-9537-129a34cb5506)
 
-13.	Meliat Pesan melalui consumer
+12.	Meliat Pesan melalui consumer
     bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-alldata --from-beginning
    	
    	![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/0700a3f0-7bb5-48a3-9816-a74fde638609)
