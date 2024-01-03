@@ -1,3 +1,5 @@
+DOKUMENTASI BELAJAR KAFKA ON BASIC
+
 INSTALL JAVA ZOOKEEPER DAN KAFKA PADA SERVER 1: 172.18.46.42
 1.	Menginstall Java 
 2.	Menjalankan perintah 
@@ -7,7 +9,7 @@ sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /
 yum -y install java 
 3.	Cek Java yang sudah terinstall dengan perintah
 Java -version
- ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/7ad4c825-7d83-4619-acb2-dfb0696b0370)
+![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/a397666a-0cf0-4c8c-a9bb-e02e676b6752)
 
 4.	Mendownload dan menginstall Kafka dengan perintah
 wget https://dlcdn.apache.org/kafka/3.6.1/kafka_2.13-3.6.1.tgz
@@ -15,35 +17,38 @@ Mengekstrak file terkompresi dengan perintah
 tar -xvf kafka_2.13-3.0.0.tgz
 5.	Menjalankan Zookeeper
 bin/zookeeper-server-start.sh config/zookeeper.properties
- 
+ ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/d0134749-6383-4504-95f9-cb2eabeca4d0)
 
 6.	Setelah Zookeeper Berjalan, Jalankan Kafka Sever dengan perintah
 bin/kafka-server-start.sh config/server.properties
- 
+ ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/1b001f73-332b-4ae5-825f-11fb13dee36b)
 
 7.	Membuat Klaster ID dengan perintah
 KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
- 
+ ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/d7c2ef29-9de6-4c87-b2f8-f44954fcd229)
+
 8.	Memformat directory Log dengan perintah
-bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties –ignore=format
- 
-9.	Membuat Topic pada kafka
+   bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties –ignore=format
+  	
+  	 ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/a70573cc-83fc-49af-930b-5dc7994e1861)
+
+10.	Membuat Topic pada kafka
 bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
- 
-10.	Melihat Topic yang sudah di buat dengan script 
-bin/kafka-topics.sh --list --bootstrap-server localhost:9092
- 
-11.	Mengirim Pesan ke Topic
-bin/kafka-console-producer.sh --broker-list localhost:9092 --topic quickstart-alldata
+ ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/723aa7a0-3965-4dfc-8f8f-f3adc4c789c6)
 
+11.	Melihat Topic yang sudah di buat dengan script
+    bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+ ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/7b349f41-df4d-46aa-a1c1-ff3e3457302d)
 
+12.	Mengirim Pesan ke Topic
+    bin/kafka-console-producer.sh --broker-list localhost:9092 --topic quickstart-alldata
+   	![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/0a43febd-ae70-44a2-9537-129a34cb5506)
 
+13.	Meliat Pesan melalui consumer
+    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-alldata --from-beginning
+   	
+   	![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/0700a3f0-7bb5-48a3-9816-a74fde638609)
 
-12.	Meliat Pesan melalui consumer
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-alldata --from-beginning
- 
-
- 
 Server 2: 172.18.46.43
 // Menginstall JAVA
 -cd /etc/yum.repos.d/
