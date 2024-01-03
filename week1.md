@@ -7,7 +7,8 @@ sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /
 yum -y install java 
 3.	Cek Java yang sudah terinstall dengan perintah
 Java -version
- 
+ ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/7ad4c825-7d83-4619-acb2-dfb0696b0370)
+
 4.	Mendownload dan menginstall Kafka dengan perintah
 wget https://dlcdn.apache.org/kafka/3.6.1/kafka_2.13-3.6.1.tgz
 Mengekstrak file terkompresi dengan perintah 
