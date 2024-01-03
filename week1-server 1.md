@@ -35,7 +35,8 @@ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
 
 9.	Membuat Topic pada kafka
 bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
- ![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/723aa7a0-3965-4dfc-8f8f-f3adc4c789c6)
+
+![image](https://github.com/rizkycdel/rizkycdel/assets/154882606/723aa7a0-3965-4dfc-8f8f-f3adc4c789c6)
 
 10.	Melihat Topic yang sudah di buat dengan script
     bin/kafka-topics.sh --list --bootstrap-server localhost:9092
